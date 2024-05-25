@@ -18,6 +18,11 @@ export default async function Index() {
     }
   };
 
+  const sb = createClient();
+  await sb.from("user_metadata").insert({
+    block,
+  });
+
   const isSupabaseConnected = canInitSupabaseClient();
 
   return (
