@@ -38,21 +38,24 @@ export type Database = {
         Row: {
           block_no: string
           name: string
-          preferences: string[]
+          preferences: string | null
+          preferences_keyphrases: string[]
           unit_no: string
           user_id: string
         }
         Insert: {
           block_no: string
           name: string
-          preferences?: string[]
+          preferences?: string | null
+          preferences_keyphrases?: string[]
           unit_no: string
           user_id?: string
         }
         Update: {
           block_no?: string
           name?: string
-          preferences?: string[]
+          preferences?: string | null
+          preferences_keyphrases?: string[]
           unit_no?: string
           user_id?: string
         }
