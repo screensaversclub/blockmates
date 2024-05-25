@@ -1,57 +1,39 @@
-import DeployButton from "../components/DeployButton";
-import AuthButton from "../components/AuthButton";
 import { createClient } from "@/utils/supabase/server";
-import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
-import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
-import Header from "@/components/Header";
-import Form from "./Form";
+import { redirect } from "next/navigation";
+
+async function trySignupWithEmail(form: FormData) {
+  "use server";
+
+  const email = form.get("email");
+
+  if (email === null) {
+    throw Error("no email entered");
+  }
+
+  const sb = createClient();
+  await sb.auth.signInWithOtp({
+    email: email as unknown as string,
+  });
+
+  redirect(`/auth/email-sent?email=${email}`);
+}
 
 export default async function Index() {
-  const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
-    try {
-      createClient();
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
-
-  const isSupabaseConnected = canInitSupabaseClient();
-
   return (
-    <div className="flex flex-col items-center flex-1 w-full gap-20">
-      <nav className="flex justify-center w-full h-16 border-b border-b-foreground/10">
-        <div className="flex items-center justify-between w-full max-w-4xl p-3 text-sm">
-          <DeployButton />
-          {isSupabaseConnected && <AuthButton />}
-        </div>
-      </nav>
+    <div className="flex flex-col items-center flex-1 w-full">
+      <h1 className="mt-8 text-2xl">Welcome to your block!</h1>
+      <h2 className="text-lg">
+        Unlock new ways to connect with your block mates, help each other and do
+        things together.
+      </h2>
 
-      <div className="flex flex-col flex-1 max-w-4xl px-3 opacity-0 animate-in gap-20">
-        <Header />
-        <main className="flex flex-col flex-1 gap-6">
-          <h2 className="mb-4 text-4xl font-bold">Next steps</h2>
-          {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-        </main>
+      <div className="mt-8">
+        <p>Just enter your email to get started!</p>
+        <form method="POST" action={trySignupWithEmail}>
+          <input type="email" name="email" />
+          <button type="submit">Go</button>
+        </form>
       </div>
-
-      <Form />
-
-      <footer className="flex justify-center w-full p-8 text-xs text-center border-t border-t-foreground/10">
-        <p>
-          Powered by{" "}
-          <a
-            href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-            target="_blank"
-            className="font-bold hover:underline"
-            rel="noreferrer"
-          >
-            Supabase
-          </a>
-        </p>
-      </footer>
     </div>
   );
 }

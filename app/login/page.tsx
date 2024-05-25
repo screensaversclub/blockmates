@@ -3,7 +3,6 @@ import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
-import { Database } from "@/types/supabase";
 
 export default async function Login({
   searchParams,
@@ -51,13 +50,6 @@ export default async function Login({
 
     return redirect("/login?message=Check email to continue sign in process");
   };
-
-  const sb = createClient();
-  await sb.from("user_metadata").insert({
-    block_no: "test",
-    unit_no: "sdjfsdf",
-    name: "sdkfsjdkdsf",
-  });
 
   return (
     <div className="flex flex-col justify-center flex-1 w-full px-8 sm:max-w-md gap-2">
