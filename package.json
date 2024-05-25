@@ -4,7 +4,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "sb:types": "supabase gen types typescript --local > types/supabase.ts"
+    "sb:types": "supabase gen types typescript --local > types/supabase.ts",
+    "sb:diff": "supabase db diff",
+    "sb:migration": "supabase migration new"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.21.1",
