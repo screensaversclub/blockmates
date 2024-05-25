@@ -59,10 +59,6 @@ export default async function Login({
     name: "sdkfsjdkdsf",
   });
 
-  const payload: Database["public"]["Tables"]["user_metadata"]["Insert"] = {
-    block_no: 234324,
-  };
-
   return (
     <div className="flex flex-col justify-center flex-1 w-full px-8 sm:max-w-md gap-2">
       <Link
