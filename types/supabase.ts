@@ -75,6 +75,8 @@ export type Database = {
           name: string
           preferences: string | null
           preferences_keyphrases: string[]
+          strengths: string
+          strengths_keyphrases: string[]
           unit_no: string
           user_id: string
         }
@@ -83,6 +85,8 @@ export type Database = {
           name: string
           preferences?: string | null
           preferences_keyphrases?: string[]
+          strengths?: string
+          strengths_keyphrases?: string[]
           unit_no: string
           user_id?: string
         }
@@ -91,6 +95,8 @@ export type Database = {
           name?: string
           preferences?: string | null
           preferences_keyphrases?: string[]
+          strengths?: string
+          strengths_keyphrases?: string[]
           unit_no?: string
           user_id?: string
         }

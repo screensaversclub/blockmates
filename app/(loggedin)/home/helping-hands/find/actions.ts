@@ -2,20 +2,7 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { createClient } from "@/utils/supabase/server";
-
-const THEMES = [
-  "Babysitting/Pet-sitting",
-  "Repair",
-  "Moving Help",
-  "Elderly Care",
-  "Computer/tech support",
-  "Carpooling",
-  "Delivery",
-  "Homework/Tuition",
-  "Language Lessons",
-  "DIY Projects",
-  "Others",
-];
+import { THEMES } from "./THEMES";
 
 export async function categoriseHelpRequest(text: string) {
   const anthropic = new Anthropic();

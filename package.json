@@ -4,7 +4,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "sb:types": "supabase gen types typescript --local > types/supabase.ts"
+    "sb:types": "supabase gen types typescript --local > types/supabase.ts",
+    "sb:diff": "supabase db diff",
+    "sb:migration": "supabase migration new",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.21.1",
@@ -12,6 +16,7 @@
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
     "autoprefixer": "10.4.17",
+    "date-fns": "^3.6.0",
     "formik": "^2.4.6",
     "geist": "^1.2.1",
     "next": "latest",
@@ -26,6 +31,9 @@
     "@types/node": "20.11.5",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "encoding": "^0.1.13"
+    "encoding": "^0.1.13",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14"
   }
 }
