@@ -3,36 +3,46 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
-		--background: 200 20% 98%;
-		--btn-background: 200 10% 91%;
-		--btn-background-hover: 200 10% 89%;
-		--foreground: 200 50% 3%;
-	}
+  :root {
+    --background: 200 20% 98%;
+    --btn-background: 200 10% 91%;
+    --btn-background-hover: 200 10% 89%;
+    --foreground: 200 50% 3%;
+  }
 }
 
 @layer base {
-	* {
-		@apply border-foreground/20;
-	}
+  * {
+    @apply border-foreground/20;
+  }
 }
 
 .animate-in {
-	animation: animateIn 0.3s ease 0.15s both;
+  animation: animateIn 0.3s ease 0.15s both;
 }
 
 @keyframes animateIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 input,
-button {
-  @apply p-2 border border-green-500 rounded;
+textarea,
+button,
+[type="button"] {
+  @apply p-2 bg-white border border-green-500 rounded;
+
+  &:disabled {
+    @apply opacity-[.25];
+  }
+}
+
+button.primary {
+  @apply px-4 font-semibold text-white bg-green-700;
 }
