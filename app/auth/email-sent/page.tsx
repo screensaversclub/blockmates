@@ -1,7 +1,7 @@
 "use client";
 
 import { createClient } from "@/utils/supabase/client";
-import { useRouter, useSearchParams } from "next/navigation";
+	import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 
 export default function EmailSent() {

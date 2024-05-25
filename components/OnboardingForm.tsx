@@ -58,83 +58,83 @@ const OnboardingForm: React.FC = () => {
   };
 
   return (
-    <div className="p-4 mt-2 shadow-xl w-96">
-      <h1 className="mb-4 text-2xl font-bold">Onboarding Page</h1>
+    <div className='p-4 mt-2 shadow-xl w-96'>
+      <h1 className='mb-4 text-2xl font-bold'>Onboarding Page</h1>
       <Formik
         initialValues={initialValues}
         validate={validate}
         onSubmit={submitHandler}
       >
         {({ isSubmitting }) => (
-          <Form className="space-y-4">
-            <div className="flex flex-col">
-              <label htmlFor="name" className="mb-2 font-medium">
+          <Form className='space-y-4'>
+            <div className='flex flex-col'>
+              <label htmlFor='name' className='mb-2 font-medium'>
                 Name
               </label>
               <Field
-                type="text"
-                id="name"
-                name="name"
-                className="p-2 border border-gray-300 rounded"
+                type='text'
+                id='name'
+                name='name'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
-                name="name"
-                component="div"
-                className="mt-1 text-red-500"
+                name='name'
+                component='div'
+                className='mt-1 text-red-500'
               />
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="block_no" className="mb-2 font-medium">
+            <div className='flex flex-col'>
+              <label htmlFor='block_no' className='mb-2 font-medium'>
                 Block Number
               </label>
               <Field
-                type="text"
-                id="block_no"
-                name="block_no"
-                className="p-2 border border-gray-300 rounded"
+                type='text'
+                id='block_no'
+                name='block_no'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
-                name="block_no"
-                component="div"
-                className="mt-1 text-red-500"
+                name='block_no'
+                component='div'
+                className='mt-1 text-red-500'
               />
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="unit_no" className="mb-2 font-medium">
+            <div className='flex flex-col'>
+              <label htmlFor='unit_no' className='mb-2 font-medium'>
                 Unit Number
               </label>
               <Field
-                type="text"
-                id="unit_no"
-                name="unit_no"
-                className="p-2 border border-gray-300 rounded"
+                type='text'
+                id='unit_no'
+                name='unit_no'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
-                name="unit_no"
-                component="div"
-                className="mt-1 text-red-500"
+                name='unit_no'
+                component='div'
+                className='mt-1 text-red-500'
               />
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="preferences" className="mb-2 font-medium">
+            <div className='flex flex-col'>
+              <label htmlFor='preferences' className='mb-2 font-medium'>
                 Tell us more about yourself in 2-3 sentences: What do you like?
                 What do you do in your free time?
               </label>
               <Field
-                type="text"
-                id="preferences"
-                name="preferences"
-                className="p-2 border border-gray-300 rounded"
-                as="textarea"
+                type='text'
+                id='preferences'
+                name='preferences'
+                className='p-2 border border-gray-300 rounded'
+                as='textarea'
               />
               <ErrorMessage
-                name="preferences"
-                component="div"
-                className="mt-1 text-red-500"
+                name='preferences'
+                component='div'
+                className='mt-1 text-red-500'
               />
             </div>
-            <div className="flex justify-end">
-              <Button type="submit" disabled={isSubmitting} className="primary">
+            <div className='flex justify-end'>
+              <Button type='submit' disabled={isSubmitting} className='primary'>
                 Submit
               </Button>
             </div>
