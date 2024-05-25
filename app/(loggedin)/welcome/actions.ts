@@ -11,7 +11,7 @@ export const addUserRecord = async (
   const sb = createClient();
 
   const { data: userData, error: userError } = await sb.auth.getUser();
-  if (userError) {
+  if (userError || !userData) {
     console.error(userError);
     throw Error("Could not get authenticated user");
   }

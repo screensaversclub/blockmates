@@ -4,7 +4,13 @@ import { Database } from "@/types/supabase";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 
-export default function UserAvatar({ userId }: { userId: string }) {
+export default function UserAvatar({
+  userId,
+  layout = "vertical",
+}: {
+  userId: string;
+  layout?: "vertical" | "horizontal";
+}) {
   const sb = createClient();
 
   const [userMeta, setUserMeta] =
@@ -24,6 +30,19 @@ export default function UserAvatar({ userId }: { userId: string }) {
 
   if (userMeta === undefined) {
     return <figure>...</figure>;
+  }
+
+  if (layout === "horizontal") {
+    return (
+      <figure className='flex w-full items-center justify-start gap-3'>
+        <b className='flex aspect-[1] w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-800 text-white'>
+          {userMeta.name.charAt(0)}
+        </b>
+        <small className='block text-center text-sm text-gray-600'>
+          {userMeta.name}
+        </small>
+      </figure>
+    );
   }
 
   return (
