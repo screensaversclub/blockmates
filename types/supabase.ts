@@ -34,6 +34,41 @@ export type Database = {
   }
   public: {
     Tables: {
+      help_request: {
+        Row: {
+          body: string
+          created_at: string
+          created_by: string
+          id: string
+          themes: string[]
+          title: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          created_by?: string
+          id?: string
+          themes?: string[]
+          title: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          created_by?: string
+          id?: string
+          themes?: string[]
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "help_request_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_metadata: {
         Row: {
           block_no: string
