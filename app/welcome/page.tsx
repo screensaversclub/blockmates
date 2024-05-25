@@ -1,17 +1,12 @@
-export default async function OnboardingPage() {
-  return (
-    <div>
-      <form className="flex flex-col gap-4">
-        <div>
-          <label>Your name</label>
-          <input type="text" name="name" />
-        </div>
+import OnboardingForm from "@/components/OnboardingForm";
+import React from "react";
 
-        <div>
-          <label>Your name</label>
-          <input type="text" name="name" />
-        </div>
-      </form>
-    </div>
-  );
-}
+const WelcomePage: React.FC = async () => {
+	return (
+		<div>
+			<OnboardingForm />
+		</div>
+	);
+};
+
+export default WelcomePage;
