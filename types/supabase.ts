@@ -34,7 +34,30 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      user_metadata: {
+        Row: {
+          block_no: string
+          name: string
+          preferences: string[]
+          unit_no: string
+          user_id: string
+        }
+        Insert: {
+          block_no: string
+          name: string
+          preferences?: string[]
+          unit_no: string
+          user_id?: string
+        }
+        Update: {
+          block_no?: string
+          name?: string
+          preferences?: string[]
+          unit_no?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
