@@ -50,7 +50,7 @@ export default function UserAvatar({
       <b className='flex aspect-[1] w-full items-center justify-center rounded-full bg-green-800 text-white'>
         {userMeta.name.charAt(0)}
       </b>
-      <small className='mt-2 block text-center text-xs text-gray-600'>
+      <small className='block mt-2 text-xs text-center text-gray-600'>
         {userMeta.name}
       </small>
     </figure>

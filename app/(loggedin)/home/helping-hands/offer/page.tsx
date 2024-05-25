@@ -1,3 +1,4 @@
+import TTTText from "@/components/TTTText";
 import UserAvatar from "@/components/UserAvatar";
 import { createClient } from "@/utils/supabase/server";
 import { format } from "date-fns";
@@ -21,20 +22,26 @@ export default async function OfferHelp() {
   return (
     <div className='flex min-h-screen w-full flex-col items-center justify-start gap-4 py-4'>
       <h1 className='mt-8 text-xl'>Help make someone's day!</h1>
+      <TTTText target='my' as='p'>
+        Help me with this!
+      </TTTText>
       <p>See some requests for help by your neighbours.</p>
 
       <div id='list_of_requests' className='mt-8 grid grid-cols-1 gap-4'>
         {helpRequests.data.map((helpReq) => (
-          <div key={helpReq.id} className='flex items-start gap-4'>
+          <div
+            key={helpReq.id}
+            className='flex items-center gap-4 rounded bg-white px-2 py-4 shadow'
+          >
             <div className='w-16 flex-shrink-0'>
               <UserAvatar userId={helpReq.created_by} />
             </div>
             <div className='mb-2'>
               <div className=''>
-                <h3 className='font-medium'>
-                  <a href={`/home/helping-hands/${helpReq.id}`}>
+                <h3 className='text-lg font-medium'>
+                  <TTTText as='span' target='my'>
                     {helpReq.title}
-                  </a>
+                  </TTTText>
                 </h3>
                 <div>
                   {helpReq.themes.map((theme) => (
@@ -47,7 +54,7 @@ export default async function OfferHelp() {
                   ))}
                 </div>
               </div>
-              <p className='clamp-3-lines'>{helpReq.body}</p>
+              <p className='clamp-3-lines text-gray-600'>{helpReq.body}</p>
 
               <small>
                 {format(new Date(helpReq.created_at), "yyyy-MMM-dd HH:mm a")}
