@@ -5,7 +5,6 @@ import React from "react";
 
 const WelcomePage: React.FC = async () => {
   const sb = createClient();
-
   const user = await sb.auth.getUser();
 
   if (user.data.user === null) {

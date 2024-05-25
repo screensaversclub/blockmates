@@ -31,7 +31,11 @@ export default async function OfferHelp() {
             </div>
             <div className='mb-2'>
               <div className=''>
-                <h3 className='font-medium'>{helpReq.title}</h3>
+                <h3 className='font-medium'>
+                  <a href={`/home/helping-hands/${helpReq.id}`}>
+                    {helpReq.title}
+                  </a>
+                </h3>
                 <div>
                   {helpReq.themes.map((theme) => (
                     <span
@@ -47,6 +51,7 @@ export default async function OfferHelp() {
 
               <small>
                 {format(new Date(helpReq.created_at), "yyyy-MMM-dd HH:mm a")}
+                {/* {formatRelative(new Date(helpReq.created_at))} */}
               </small>
             </div>
           </div>
