@@ -11,6 +11,7 @@ interface OnboardingFormValues {
   block_no: string;
   unit_no: string;
   preferences: string;
+  strengths: string;
 }
 
 const OnboardingForm: React.FC = () => {
@@ -20,6 +21,7 @@ const OnboardingForm: React.FC = () => {
     block_no: "",
     unit_no: "",
     preferences: "",
+    strengths: "",
   };
 
   const validate = (values: OnboardingFormValues) => {
@@ -38,6 +40,10 @@ const OnboardingForm: React.FC = () => {
       errors.preferences = "Please introduce yourself!";
     }
 
+    if (!values.strengths) {
+      errors.strengths = "Please provide your strengths";
+    }
+
     return errors;
   };
 
@@ -48,6 +54,7 @@ const OnboardingForm: React.FC = () => {
         block_no: values.block_no,
         unit_no: values.unit_no,
         preferences: values.preferences,
+        strengths: values.strengths,
       });
 
       console.info("Successfully updated user metadata");
@@ -58,7 +65,7 @@ const OnboardingForm: React.FC = () => {
   };
 
   return (
-    <div className='p-4 mt-2 shadow-xl w-96'>
+    <div className='mt-2 w-96 p-4 shadow-xl'>
       <h1 className='mb-4 text-2xl font-bold'>Onboarding Page</h1>
       <Formik
         initialValues={initialValues}
@@ -75,7 +82,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='name'
                 name='name'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
               />
               <ErrorMessage
                 name='name'
@@ -91,7 +98,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='block_no'
                 name='block_no'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
               />
               <ErrorMessage
                 name='block_no'
@@ -107,7 +114,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='unit_no'
                 name='unit_no'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
               />
               <ErrorMessage
                 name='unit_no'
@@ -124,11 +131,29 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='preferences'
                 name='preferences'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
                 as='textarea'
               />
               <ErrorMessage
                 name='preferences'
+                component='div'
+                className='mt-1 text-red-500'
+              />
+            </div>
+            <div className='flex flex-col'>
+              <label htmlFor='strengths' className='mb-2 font-medium'>
+                Please share your strengths in 2-3 sentences: What skills,
+                talents, or experiences do you excel at?
+              </label>
+              <Field
+                type='text'
+                id='strengths'
+                name='strengths'
+                className='rounded border border-gray-300 p-2'
+                as='textarea'
+              />
+              <ErrorMessage
+                name='strengths'
                 component='div'
                 className='mt-1 text-red-500'
               />
