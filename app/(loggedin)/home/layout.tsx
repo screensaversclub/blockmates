@@ -15,7 +15,7 @@ export default async function UserLayout({
     .select()
     .eq("user_id", data.user!.id);
 
-  if (hasRow.count !== 1) {
+  if (hasRow.data == null || hasRow.data.length !== 1) {
     redirect("/welcome");
   }
 
