@@ -29,6 +29,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=xxx
 ANTHROPIC_API_KEY=xxx
 DEEPL_API_KEY=xxx
 
+# Initiate supabase with the migrations found in supabase/migrations
+# https://supabase.com/docs/reference/cli/supabase-db-push
+
 
 # Start the development server:
 npm run dev
