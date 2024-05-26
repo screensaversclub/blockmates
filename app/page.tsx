@@ -21,11 +21,12 @@ async function trySignupWithEmail(form: FormData) {
 export default async function Index() {
   return (
     <>
-      <div className='flex w-full flex-1 flex-col items-center px-4 pt-24'>
-        <h1 className='mt-8 text-center text-2xl font-medium text-green-600'>
+      <div className='flex w-full flex-1 flex-col items-center px-4 pt-4'>
+        <img src='/landing.jpg' className='w-full max-w-96' />
+        <h1 className='mt-8 text-center text-2xl font-medium'>
           Welcome to your block!
         </h1>
-        <h2 className='text-center text-lg'>
+        <h2 className='text-center text-lg text-gray-700'>
           Unlock new ways to connect with your block mates, help each other and
           do things together.
         </h2>
