@@ -72,6 +72,7 @@ export type Database = {
       user_metadata: {
         Row: {
           block_no: string
+          language: string
           name: string
           preferences: string | null
           preferences_keyphrases: string[]
@@ -82,6 +83,7 @@ export type Database = {
         }
         Insert: {
           block_no: string
+          language?: string
           name: string
           preferences?: string | null
           preferences_keyphrases?: string[]
@@ -92,6 +94,7 @@ export type Database = {
         }
         Update: {
           block_no?: string
+          language?: string
           name?: string
           preferences?: string | null
           preferences_keyphrases?: string[]

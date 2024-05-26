@@ -12,6 +12,7 @@ interface OnboardingFormValues {
   unit_no: string;
   preferences: string;
   strengths: string;
+  language: string;
 }
 
 const OnboardingForm: React.FC = () => {
@@ -22,6 +23,7 @@ const OnboardingForm: React.FC = () => {
     unit_no: "",
     preferences: "",
     strengths: "",
+    language: "en",
   };
 
   const validate = (values: OnboardingFormValues) => {
@@ -55,6 +57,7 @@ const OnboardingForm: React.FC = () => {
         unit_no: values.unit_no,
         preferences: values.preferences,
         strengths: values.strengths,
+        language: values.language,
       });
 
       console.info("Successfully updated user metadata");
@@ -65,8 +68,8 @@ const OnboardingForm: React.FC = () => {
   };
 
   return (
-    <div className='mt-8 w-full pb-4'>
-      <h1 className='mb-4 text-center text-2xl'>First, introduce yourself:</h1>
+    <div className='w-full pb-4 mt-8'>
+      <h1 className='mb-4 text-2xl text-center'>First, introduce yourself:</h1>
       <Formik
         initialValues={initialValues}
         validate={validate}
@@ -82,7 +85,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='name'
                 name='name'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
                 name='name'
@@ -98,7 +101,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='block_no'
                 name='block_no'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
                 name='block_no'
@@ -114,7 +117,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='unit_no'
                 name='unit_no'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
                 name='unit_no'
@@ -122,6 +125,26 @@ const OnboardingForm: React.FC = () => {
                 className='mt-1 text-red-500'
               />
             </div>
+
+            <div className='flex flex-col'>
+              <label className='mb-2'>Your language:</label>
+
+              <div className='flex gap-4' role='group'>
+                <label>
+                  <Field type='radio' name='language' value='en' /> English
+                </label>
+
+                <label>
+                  <Field type='radio' name='language' value='my' /> Bahasa
+                  Melayu
+                </label>
+
+                <label>
+                  <Field type='radio' name='language' value='cn' /> 中文
+                </label>
+              </div>
+            </div>
+
             <div className='flex flex-col'>
               <label htmlFor='preferences' className='mb-2 '>
                 Tell us more about yourself in 2-3 sentences:
@@ -168,7 +191,7 @@ const OnboardingForm: React.FC = () => {
               <button
                 type='submit'
                 disabled={isSubmitting}
-                className='primary w-full'
+                className='w-full primary'
               >
                 Submit
               </button>
