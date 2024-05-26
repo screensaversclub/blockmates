@@ -44,7 +44,8 @@ export default function TTTText({
     return translatedText.length > 0 && doTranslate ? translatedText : text;
   }, [translatedText, doTranslate]);
 
-  const handleTranslation = useCallback(async () => {
+  const handleTranslation = useCallback(async (e: any) => {
+    e.stopPropagation();
     const sb = createClient();
     const user = await sb.auth.getUser();
 

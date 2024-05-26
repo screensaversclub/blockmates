@@ -22,9 +22,7 @@ export default async function OfferHelp() {
   return (
     <div className='flex flex-col items-center justify-start w-full min-h-screen py-4 gap-4'>
       <h1 className='mt-8 text-xl'>Help make someone's day!</h1>
-      <TTTText target='my' as='p'>
-        Help me with this!
-      </TTTText>
+      <TTTText as='p'>Help me with this!</TTTText>
       <p>See some requests for help by your neighbours.</p>
 
       <div id='list_of_requests' className='mt-8 grid grid-cols-1 gap-4'>
@@ -38,11 +36,9 @@ export default async function OfferHelp() {
             </div>
             <div className='mb-2'>
               <div className=''>
-                <Link href={`/home/helping-hands/offer/${helpReq.id}`}>
+                <Link href={`/home/helping-hands/${helpReq.id}`}>
                   <h3 className='text-lg font-medium'>
-                    <TTTText as='span' target='my'>
-                      {helpReq.title}
-                    </TTTText>
+                    <TTTText as='span'>{helpReq.title}</TTTText>
                   </h3>
                 </Link>
                 <div>
