@@ -1,3 +1,4 @@
+import { LogoutButton } from "@/components/LogoutButton";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -24,20 +25,22 @@ export default async function LoggedInLayout({
 
   return (
     <Fragment>
-      <nav className="flex items-center justify-between w-full p-4 text-white bg-green-800">
-        <Link href="/home">
-          <span>BlockMates</span>
+      <nav className='sticky top-0 flex items-center justify-between w-full p-4 text-white bg-teal-600'>
+        <Link href='/home'>
+          <img
+            src='/logo.png'
+            alt='logo'
+            className='absolute left-0 top-[50%] w-36 -translate-y-[50%]'
+          />
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className='flex items-center gap-4'>
           {name || user.data.user.email}
 
-          <button type="button" className="text-green-700">
-            Log out
-          </button>
+          <LogoutButton />
         </div>
       </nav>
-      <div className="w-full max-w-4xl px-4">{children}</div>
+      <div className='w-full max-w-4xl px-4'>{children}</div>
     </Fragment>
   );
 }

@@ -20,20 +20,28 @@ async function trySignupWithEmail(form: FormData) {
 
 export default async function Index() {
   return (
-    <div className="flex flex-col items-center flex-1 w-full">
-      <h1 className="mt-8 text-2xl">Welcome to your block!</h1>
-      <h2 className="text-lg">
-        Unlock new ways to connect with your block mates, help each other and do
-        things together.
-      </h2>
+    <>
+      <div className='flex w-full flex-1 flex-col items-center px-4 pt-24'>
+        <h1 className='mt-8 text-center text-2xl font-medium text-green-600'>
+          Welcome to your block!
+        </h1>
+        <h2 className='text-center text-lg'>
+          Unlock new ways to connect with your block mates, help each other and
+          do things together.
+        </h2>
 
-      <div className="mt-8">
-        <p>Just enter your email to get started!</p>
-        <form method="POST" action={trySignupWithEmail}>
-          <input type="email" name="email" />
-          <button type="submit">Go</button>
-        </form>
+        <div className='mt-8 rounded border border-yellow-200 bg-yellow-100 p-4'>
+          <p>Just enter your email to get started!</p>
+          <form
+            method='POST'
+            action={trySignupWithEmail}
+            className='mt-2 flex gap-2'
+          >
+            <input type='email' name='email' />
+            <button type='submit'>Go</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -34,9 +34,8 @@
 
 input,
 textarea,
-button,
-[type="button"] {
-  @apply rounded border border-green-500 bg-white p-2;
+button {
+  @apply rounded border border-teal-500 bg-white p-2;
 
   &:disabled {
     @apply opacity-[.25];
@@ -44,7 +43,7 @@ button,
 }
 
 button.primary {
-  @apply bg-green-700 px-4 font-semibold text-white;
+  @apply bg-teal-700 px-4 font-semibold text-white;
 }
 
 .clamp-3-lines {
@@ -78,6 +77,23 @@ button.primary {
    background-repeat: no-repeat;
    animation: linear 2s tttext-underline infinite;
 	 */
+}
+
+h1,
+h2,
+h3 {
+  @apply font-medium text-teal-600;
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
 }
 
 @keyframes tttext-underline {

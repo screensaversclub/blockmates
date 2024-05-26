@@ -18,11 +18,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
-      <body className="bg-background text-foreground">
-        <main className="flex flex-col items-center min-h-screen">
-          {children}
-        </main>
+    <html lang='en' className={GeistSans.className}>
+      <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+      </head>
+      <body className='bg-background text-foreground'>
+        <main className='flex flex-col items-center'>{children}</main>
       </body>
     </html>
   );

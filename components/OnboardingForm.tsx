@@ -65,8 +65,8 @@ const OnboardingForm: React.FC = () => {
   };
 
   return (
-    <div className='p-4 mt-2 shadow-xl w-96'>
-      <h1 className='mb-4 text-2xl font-bold'>Onboarding Page</h1>
+    <div className='mt-8 w-full pb-4'>
+      <h1 className='mb-4 text-center text-2xl'>First, introduce yourself:</h1>
       <Formik
         initialValues={initialValues}
         validate={validate}
@@ -75,14 +75,14 @@ const OnboardingForm: React.FC = () => {
         {({ isSubmitting }) => (
           <Form className='space-y-4'>
             <div className='flex flex-col'>
-              <label htmlFor='name' className='mb-2 font-medium'>
+              <label htmlFor='name' className='mb-2'>
                 Name
               </label>
               <Field
                 type='text'
                 id='name'
                 name='name'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
               />
               <ErrorMessage
                 name='name'
@@ -91,14 +91,14 @@ const OnboardingForm: React.FC = () => {
               />
             </div>
             <div className='flex flex-col'>
-              <label htmlFor='block_no' className='mb-2 font-medium'>
+              <label htmlFor='block_no' className='mb-2'>
                 Block Number
               </label>
               <Field
                 type='text'
                 id='block_no'
                 name='block_no'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
               />
               <ErrorMessage
                 name='block_no'
@@ -107,14 +107,14 @@ const OnboardingForm: React.FC = () => {
               />
             </div>
             <div className='flex flex-col'>
-              <label htmlFor='unit_no' className='mb-2 font-medium'>
+              <label htmlFor='unit_no' className='mb-2 '>
                 Unit Number
               </label>
               <Field
                 type='text'
                 id='unit_no'
                 name='unit_no'
-                className='p-2 border border-gray-300 rounded'
+                className='rounded border border-gray-300 p-2'
               />
               <ErrorMessage
                 name='unit_no'
@@ -123,15 +123,18 @@ const OnboardingForm: React.FC = () => {
               />
             </div>
             <div className='flex flex-col'>
-              <label htmlFor='preferences' className='mb-2 font-medium'>
-                Tell us more about yourself in 2-3 sentences: What do you like?
-                What do you do in your free time?
+              <label htmlFor='preferences' className='mb-2 '>
+                Tell us more about yourself in 2-3 sentences:
+                <br />
+                <small>
+                  What do you like? What do you do in your free time?
+                </small>
               </label>
               <Field
                 type='text'
                 id='preferences'
                 name='preferences'
-                className='p-2 border border-gray-300 rounded'
+                className='h-[8em] rounded border border-gray-300 p-2'
                 as='textarea'
               />
               <ErrorMessage
@@ -141,15 +144,18 @@ const OnboardingForm: React.FC = () => {
               />
             </div>
             <div className='flex flex-col'>
-              <label htmlFor='strengths' className='mb-2 font-medium'>
-                Please share your strengths in 2-3 sentences: What skills,
-                talents, or experiences do you excel at?
+              <label htmlFor='strengths' className='mb-2 '>
+                Please share your strengths in 2-3 sentences:
+                <br />
+                <small>
+                  What skills, talents, or experiences do you excel at?
+                </small>
               </label>
               <Field
                 type='text'
                 id='strengths'
                 name='strengths'
-                className='p-2 border border-gray-300 rounded'
+                className='h-[8em] rounded border border-gray-300 p-2'
                 as='textarea'
               />
               <ErrorMessage
@@ -158,10 +164,14 @@ const OnboardingForm: React.FC = () => {
                 className='mt-1 text-red-500'
               />
             </div>
-            <div className='flex justify-end'>
-              <Button type='submit' disabled={isSubmitting} className='primary'>
+            <div className='flex w-full'>
+              <button
+                type='submit'
+                disabled={isSubmitting}
+                className='primary w-full'
+              >
                 Submit
-              </Button>
+              </button>
             </div>
           </Form>
         )}
