@@ -29,20 +29,25 @@ export default async function SingleRequestView({ params }: any) {
           <TTTText as='p'>{body}</TTTText>
         </div>
       </div>
-      <div className='my-4 bg-yellow-100 p-4'>
-        <h1 className='mb-4 text-center text-sm font-bold uppercase text-yellow-800'>
-          Why should you help?
-        </h1>
-        <blockquote className='font-italic'>
-          <TTTText as='p'>
-            {inspirationalMessage ? inspirationalMessage : null}
-          </TTTText>
-        </blockquote>
-      </div>
+
+      {inspirationalMessage ? (
+        <div className='my-4 bg-yellow-100 p-4'>
+          <h1 className='mb-4 text-center text-sm font-bold uppercase text-yellow-800'>
+            Why should you help?
+          </h1>
+          <blockquote className='font-italic'>
+            <TTTText as='p'>
+              {inspirationalMessage ? inspirationalMessage : null}
+            </TTTText>
+          </blockquote>
+        </div>
+      ) : null}
 
       <div>
         <Link href='/home/helping-hands/offer'>
-          <button>Back</button>
+          <button className='w-full rounded border border-teal-700 bg-white px-4 py-2 text-teal-600 transition duration-300 ease-in-out hover:bg-teal-700 hover:text-white'>
+            Back
+          </button>
         </Link>
       </div>
     </div>
