@@ -16,16 +16,20 @@ export default async function LoggedInLayout({
     redirect("/");
   }
 
-  const { data: nameData } = await sb
+  const { data: userData } = await sb
     .from("user_metadata")
-    .select("name")
+    .select("name,language")
     .filter("user_id", "eq", user.data.user.id)
     .single();
-  const name = nameData === null ? null : nameData.name;
+  const name = userData === null ? null : userData.name;
+  const userLang =
+    userData === null ? null : (
+      <small className='font-bold uppercase'>{userData.language}</small>
+    );
 
   return (
     <Fragment>
-      <nav className='sticky top-0 flex items-center justify-between w-full p-4 text-white bg-teal-600'>
+      <nav className='sticky top-0 z-[300] flex w-full items-center justify-between bg-teal-600 p-4 text-white'>
         <Link href='/home'>
           <img
             src='/logo.png'
@@ -35,7 +39,10 @@ export default async function LoggedInLayout({
         </Link>
 
         <div className='flex items-center gap-4'>
-          {name || user.data.user.email}
+          <div className='flex flex-col items-end gap-1 leading-[1]'>
+            <span>{name || user.data.user.email}</span>
+            {userLang}
+          </div>
 
           <LogoutButton />
         </div>

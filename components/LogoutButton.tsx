@@ -6,7 +6,7 @@ export function LogoutButton() {
   return (
     <button
       type='button'
-      className='border-white bg-[transparent] text-white'
+      className='border-white bg-[transparent] p-1 px-2 text-white'
       onClick={async () => {
         const sb = createClient();
         await sb.auth.getUser();

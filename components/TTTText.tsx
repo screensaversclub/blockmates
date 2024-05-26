@@ -46,6 +46,7 @@ export default function TTTText({
 
   const handleTranslation = useCallback(async (e: any) => {
     e.stopPropagation();
+    e.preventDefault();
     const sb = createClient();
     const user = await sb.auth.getUser();
 
