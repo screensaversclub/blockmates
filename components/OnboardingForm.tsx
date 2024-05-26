@@ -65,7 +65,7 @@ const OnboardingForm: React.FC = () => {
   };
 
   return (
-    <div className='mt-2 w-96 p-4 shadow-xl'>
+    <div className='p-4 mt-2 shadow-xl w-96'>
       <h1 className='mb-4 text-2xl font-bold'>Onboarding Page</h1>
       <Formik
         initialValues={initialValues}
@@ -82,7 +82,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='name'
                 name='name'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
                 name='name'
@@ -98,7 +98,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='block_no'
                 name='block_no'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
                 name='block_no'
@@ -114,7 +114,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='unit_no'
                 name='unit_no'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
               />
               <ErrorMessage
                 name='unit_no'
@@ -131,7 +131,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='preferences'
                 name='preferences'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
                 as='textarea'
               />
               <ErrorMessage
@@ -149,7 +149,7 @@ const OnboardingForm: React.FC = () => {
                 type='text'
                 id='strengths'
                 name='strengths'
-                className='rounded border border-gray-300 p-2'
+                className='p-2 border border-gray-300 rounded'
                 as='textarea'
               />
               <ErrorMessage
