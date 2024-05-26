@@ -1,4 +1,5 @@
 "use client";
+import { createClient } from "@/utils/supabase/client";
 import { getTranslation } from "@/utils/translate-deepl";
 import { useCallback, useMemo, useState } from "react";
 
@@ -29,11 +30,9 @@ const innerText: (jsx: React.ReactNode) => string = (jsx) => {
 export default function TTTText({
   children,
   as = "span",
-  target = "en",
 }: {
   children: React.ReactNode;
   as: "span" | "p";
-  target: "en" | "my" | "cn";
 }) {
   const text = innerText(children);
 
@@ -46,11 +45,30 @@ export default function TTTText({
   }, [translatedText, doTranslate]);
 
   const handleTranslation = useCallback(async () => {
+    const sb = createClient();
+    const user = await sb.auth.getUser();
+
+    if (typeof user.data.user?.id !== "string") {
+      alert("Error fetching user in TTTText!");
+      return;
+    }
+
+    const { data } = await sb
+      .from("user_metadata")
+      .select("language")
+      .eq("user_id", user.data.user.id)
+      .single();
+
+    const targetLanguage =
+      data === null || ["en", "my", "cn"].indexOf(data.language) < 0
+        ? "en"
+        : (data.language as "en" | "my" | "cn");
+
     setDoTranslate(() => true);
     setIsTranslating(() => true);
     const _translation = await getTranslation({
       text,
-      targetLanguage: target,
+      targetLanguage,
     });
 
     if (_translation !== null && _translation.length > 0) {
@@ -59,7 +77,7 @@ export default function TTTText({
     } else {
       alert("error translating. try again.");
     }
-  }, [target]);
+  }, []);
 
   if (as === "p") {
     return (
@@ -85,7 +103,7 @@ export default function TTTText({
       {!doTranslate && translatedText === "" && (
         <b
           onClick={handleTranslation}
-          className='translatable-text relative'
+          className='relative translatable-text'
           style={{
             opacity: isTranslating ? 0.6 : 1,
           }}
