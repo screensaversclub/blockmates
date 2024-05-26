@@ -17,24 +17,29 @@ export default async function SingleRequestView({ params }: any) {
           <UserAvatar layout='horizontal' userId={requesterId} />
         </div>
 
-        <h1 className='text-xl font-medium'>{title}</h1>
-        <h2>{body}</h2>
+        <h1 className='text-md py-1'>{title}</h1>
+        <h2 className='text-sm text-black'>{body}</h2>
         <small className='text-xs text-gray-600'>
           {format(new Date(requestDate), "yyyy-MMM-dd HH:mm a")}
         </small>
       </div>
-      <div className='my-4 bg-yellow-100 p-4'>
-        <h1 className='mb-4 text-center text-sm font-bold uppercase text-yellow-800'>
-          Why should you help?
-        </h1>
-        <blockquote className='font-italic'>
-          <p>{inspirationalMessage ? inspirationalMessage : null}</p>
-        </blockquote>
-      </div>
+
+      {inspirationalMessage ? (
+        <div className='my-4 bg-yellow-100 p-4'>
+          <h1 className='mb-4 text-center text-sm font-bold uppercase text-yellow-800'>
+            Why should you help?
+          </h1>
+          <blockquote className='font-italic'>
+            <p>{inspirationalMessage}</p>
+          </blockquote>
+        </div>
+      ) : null}
 
       <div>
         <Link href='/home/helping-hands/offer'>
-          <button>Back</button>
+          <button className='w-full rounded border border-teal-700 bg-white px-4 py-2 text-teal-600 transition duration-300 ease-in-out hover:bg-teal-700 hover:text-white'>
+            Back
+          </button>
         </Link>
       </div>
     </div>
