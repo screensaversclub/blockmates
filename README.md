@@ -1,8 +1,38 @@
 # BlockMates
 
-## Development
+BlockMates is a neighborhood social app designed to foster community support and connection among neighbors. Leveraging the power of AI and modern technologies, BlockMates aims to facilitate meaningful interactions, promote acts of kindness, and build stronger, more connected communities.
 
-1. Clone this repo
-2. Add .env file containing supabase creds
-3. Install [Supabase CLI](https://supabase.com/docs/guides/cli/getting-started)
-4.
+## Features
+
+- AI-Powered Matching: Matches neighbors who need help with those who can provide it, using AI-powered inference of user's profiles and strengths.
+- - One-tap Translation: User-submitted text can be translated with one tap anywhere in the app, making the app inclusive to non-English speakers. 
+- AI-Driven Motivation: Encourages engagement for community members to offer help - using personalised text prompts.  
+- Smart Help Requests: Assists users in crafting compelling help requests, increasing the likelihood of receiving timely assistance. 
+
+
+
+## To run BlockMates locally, follow these steps:
+
+```bash
+# Clone the repository:
+git clone https://github.com/your-username/blockmates.git
+cd blockmates
+npm install
+
+# Set up Supabase:
+# Sign up for a free account on Supabase.
+
+# Create a new project and obtain your Supabase URL and API Key. You'll also need an Anthropic and DeepL API Key. 
+# Add the following API keys to .env.local
+NEXT_PUBLIC_SUPABASE_URL=xxx
+NEXT_PUBLIC_SUPABASE_ANON_KEY=xxx
+ANTHROPIC_API_KEY=xxx
+DEEPL_API_KEY=xxx
+
+
+# Start the development server:
+npm run dev
+# Open http://localhost:3000 in your browser to view the app.
+```
+
+We welcome contributions from the community! Fork and PR, submit issues (requests), we await your contribution. 
