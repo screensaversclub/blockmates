@@ -1,3 +1,11 @@
+> [!NOTE]  
+> Blockmates was created as a hackathon project during [hacksingapore 2024](https://angelhack.com/hackglobal/singapore/) by @screesaversclub and @larrythng96
+> Watch the video demo below:
+>
+> https://github.com/screensaversclub/blockmates/assets/67162738/dfe34968-64cd-4202-bcf3-f5d9cbd9d2b7
+
+
+
 # BlockMates
 
 BlockMates is a neighborhood social app designed to foster community support and connection among neighbors. Leveraging the power of AI and modern technologies, BlockMates aims to facilitate meaningful interactions, promote acts of kindness, and build stronger, more connected communities.
@@ -15,7 +23,7 @@ BlockMates is a neighborhood social app designed to foster community support and
 
 ```bash
 # Clone the repository:
-git clone https://github.com/your-username/blockmates.git
+git clone https://github.com/screensaversclub/blockmates.git
 cd blockmates
 npm install
 
